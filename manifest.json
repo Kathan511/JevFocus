@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "Jev Focus",
+  "version": "0.6.3",
+  "description": "Filters Instagram Reels and YouTube videos against your chosen topics using a private Jev-backed classifier.",
+  "permissions": ["storage"],
+  "optional_host_permissions": ["https://api.typesafe.ai/*"],
+  "background": {
+    "service_worker": "src/background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["src/content/instagram.js"],
+      "css": ["src/content/instagram.css"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://www.youtube.com/*", "https://youtube.com/*"],
+      "js": ["src/content/youtube.js"],
+      "css": ["src/content/youtube.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Jev Focus",
+    "default_popup": "src/popup/popup.html"
+  },
+  "options_page": "src/options/options.html"
+}
