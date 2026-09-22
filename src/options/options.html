@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jev Focus settings</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="mark">J</div>
+        <div>
+          <h1>Jev Focus</h1>
+          <p>Choose what deserves your attention.</p>
+        </div>
+      </header>
+
+      <section>
+        <div class="row">
+          <div>
+            <h2>Focus mode</h2>
+            <p>Automatically skip low-match Reels and hide low-match YouTube videos.</p>
+          </div>
+          <label class="switch">
+            <input id="focusMode" type="checkbox">
+            <span aria-hidden="true"></span>
+          </label>
+        </div>
+      </section>
+
+      <section>
+        <label for="topics"><h2>Topics to show</h2></label>
+        <p>One per line or comma-separated. Be specific enough for consistent classification.</p>
+        <textarea id="topics" rows="7" placeholder="AI&#10;software engineering&#10;startups"></textarea>
+      </section>
+
+      <section>
+        <div class="range-title">
+          <label for="threshold"><h2>Match threshold</h2></label>
+          <output id="thresholdValue">70%</output>
+        </div>
+        <input id="threshold" type="range" min="0.3" max="0.95" step="0.05">
+        <div class="range-labels"><span>More variety</span><span>More focused</span></div>
+      </section>
+
+      <section>
+        <label for="jevApiKey"><h2>Jev API key <span class="optional">Required</span></h2></label>
+        <p>Stored only in Chrome's local extension storage—not synced. <code>apikey_…</code> keys are sent only to TypeSafe's official API.</p>
+        <div class="secret-row">
+          <input id="jevApiKey" type="password" autocomplete="off" spellcheck="false" placeholder="Enter your Jev API key">
+          <button id="toggleKey" class="secondary" type="button" aria-label="Show API key">Show</button>
+        </div>
+      </section>
+
+      <section>
+        <label for="creators"><h2>Always-show creators and channels</h2></label>
+        <p>Creator handles and YouTube channel names added here are never filtered. One per line.</p>
+        <textarea id="creators" rows="4" placeholder="creator_handle"></textarea>
+      </section>
+
+      <footer>
+        <span id="status" role="status"></span>
+        <div class="footer-actions">
+          <button id="test" class="secondary" type="button">Test connection</button>
+          <button id="save" type="button">Save settings</button>
+        </div>
+      </footer>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

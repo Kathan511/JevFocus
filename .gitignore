@@ -1,0 +1,11 @@
+# macOS
+.DS_Store
+
+# Generated extension packages
+dist/
+*.zip
+
+# Local editor and browser state
+.vscode/
+.idea/
+*.log
